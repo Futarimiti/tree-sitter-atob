@@ -1,0 +1,217 @@
+==================
+Basic rule
+==================
+foo=bar
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text))))
+
+==================
+Empty lhs
+==================
+=bar
+---
+(source_file
+  (rule
+    (rhs
+      (text))))
+
+==================
+Empty rhs
+==================
+foo=
+---
+(source_file
+  (rule
+    (lhs
+      (text))))
+
+==================
+Completely empty rule
+==================
+=
+---
+
+(source_file
+  (rule))
+
+==================
+Keywords on lhs
+==================
+(start)foo=bar
+---
+(source_file
+  (rule
+    (lhs
+      (lhs_keyword)
+      (text))
+    (rhs
+      (text))))
+
+==================
+Keywords on rhs
+==================
+foo=(return)bar
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (rhs_keyword)
+      (text))))
+
+==================
+Keyword only rhs
+==================
+foo=(return)
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (rhs_keyword))))
+
+==================
+Once rule
+==================
+(once)foo=(start)bar
+---
+(source_file
+  (rule
+    (rule_keyword)
+    (lhs
+      (text))
+    (rhs
+      (rhs_keyword)
+      (text))))
+
+==================
+Comment line
+==================
+# hello
+---
+(source_file
+  (comment))
+
+==================
+Rule with trailing comment
+==================
+foo=bar#comment
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (comment))
+
+==================
+Grand mix
+==================
+(once)(start)foo=(return)bar#comment
+---
+(source_file
+  (rule
+    (rule_keyword)
+    (lhs
+      (lhs_keyword)
+      (text))
+    (rhs
+      (rhs_keyword)
+      (text)))
+  (comment))
+
+==================
+Nothing
+==================
+---
+(source_file)
+
+==================
+Multiple rules
+==================
+A=B
+B=C
+C=(return)D
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (rhs_keyword)
+      (text))))
+
+==================
+Multiple rules with newlines
+==================
+A=B
+
+B=C
+
+C=(return)D
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (rhs_keyword)
+      (text))))
+
+==================
+Multiple rules with newlines and comments
+==================
+A=B
+
+# example comment
+B=C
+
+C=(return)D #another comment
+---
+(source_file
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (comment)
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (text)))
+  (rule
+    (lhs
+      (text))
+    (rhs
+      (rhs_keyword)
+      (text)))
+  (comment))
