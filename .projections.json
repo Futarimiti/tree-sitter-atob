@@ -1,0 +1,6 @@
+{ "*": { "make": "tree-sitter"
+       , "dispatch": "tree-sitter generate"
+       , "console": "node"
+       }
+, "*.nix": { "console": "nix repl" }
+}

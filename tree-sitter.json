@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "atob",
+      "camelcase": "AToB",
+      "title": "A=B",
+      "scope": "source.atob",
+      "file-types": [
+        "atob"
+      ],
+      "injection-regex": "^atob$",
+      "class-name": "TreeSitterAtob"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "WTFPL",
+    "description": "A string-rewriting esolang, from the game of the same name",
+    "authors": [
+      {
+        "name": "f",
+        "email": "huivioemp1bs@posteo.com",
+        "url": "https://futarimiti.github.io/"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Futarimiti/tree-sitter-atob",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=62.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tree-sitter-atob"
+description = "A string-rewriting esolang, from the game of the same name"
+version = "0.0.1"
+keywords = ["incremental", "parsing", "tree-sitter", "atob"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Compilers",
+  "Topic :: Text Processing :: Linguistic",
+  "Typing :: Typed",
+]
+authors = [{ name = "f", email = "huivioemp1bs@posteo.com" }]
+requires-python = ">=3.10"
+license.text = "WTFPL"
+readme = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/futarimiti/tree-sitter-atob"
+Funding = ""
+
+[project.optional-dependencies]
+core = ["tree-sitter~=0.24"]
+
+[tool.cibuildwheel]
+build = "cp310-*"
+build-frontend = "build"
