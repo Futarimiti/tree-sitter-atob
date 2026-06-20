@@ -1,5 +1,9 @@
+# for my test use only
+queries/atob/
+
 .direnv/
 .envrc
+.nvim.lua
 
 # Rust artifacts
 target/
